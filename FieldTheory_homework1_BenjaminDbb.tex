@@ -1,0 +1,691 @@
+%!TEX program = xelatex
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{ctex}
+\title{Quantum Field Theory: Homework}
+\author{BenjaminDbb}
+\begin{document}
+\maketitle
+
+\section{}
+\bf{(a)}
+\begin{align}
+F^{\mu \nu} 			&= \partial^{\mu} A^{\nu} - \partial^{\nu} A^{\mu}  \nonumber \\
+F_{\mu \nu} F^{\mu \nu} &= ({\partial_{\mu} A_{\nu} - \partial_{\nu} A_{\mu}}) ({\partial^{\mu} A^{\nu} - \partial^{\nu} A^{\mu}}) \nonumber \\
+						&= \partial_{\mu} A_{\nu} \partial^{\mu} A^{\nu} - \partial_{\nu} A_{\mu} \partial^{\mu} A^{\nu} - 
+						\partial_{\mu} A_{\nu} \partial^{\nu} A^{\mu} + \partial_{\nu} A_{\mu} \partial^{\nu} A^{\mu} \nonumber
+\end{align}
+hello year in my heart!
+且在上述表达式中$\mu \: \nu$都
+
+\begin{equation}
+F_{\mu \nu} F^{\mu \nu} = 2(\partial_{\mu} A_{\nu} \partial^{\mu} A^{\nu} - \partial_{\nu} A_{\mu} \partial^{\mu} A^{\nu})
+\end{equation}
+
+由经典无源电磁场的作用量表达式 $$S=\int d^4 x \mathcal{L} =\int d^4 x ( -\frac{1}{4} F_{\mu \nu} F^{\mu \nu} )$$ 及由欧拉-拉格朗日公式$$\frac{\partial \mathcal{L}}{\partial A_{\beta}} - \partial_{\lambda} \frac{\partial \mathcal{L}}{\partial (\partial_{\lambda} A_{\beta})} = 0 $$
+且在拉格朗日量表达式中$A^{\mu}$与$\partial^{\mu} A^{\nu}$是独立变量。且拉格朗日量$$\mathcal{L} =  -\frac{1}{4} F_{\mu \nu} F^{\mu \nu} $$ 仅仅与 $\partial^{\mu} A^{\nu}$ 有关 \\
+则EOM为
+$$\partial_{\lambda} \left[ \frac{\partial(\partial_{\mu} A_{\nu} \partial^{\mu} A^{\nu} - \partial_{\nu} A_{\mu} \partial^{\mu} A^{\nu})}{\partial(\partial_{\lambda} A_{\beta})} \right] = 0 \nonumber $$
+展开得
+$$
+\partial_{\lambda} \left[ \frac{\partial (\partial_{\mu} A_{\nu})}{\partial(\partial_{\lambda} A_{\beta})} \partial^{\mu} A^{\nu} + \partial_{\mu} A_{\nu} \frac{\partial (\partial^{\mu} A^{\nu})}{\partial (\partial_{\lambda} A_{\beta})} - \frac{\partial (\partial_{\nu} A_{\mu})}{\partial (\partial_{\lambda} A_{\beta})} \partial^{\mu} A^{\nu} - \partial_{\mu} A_{\nu} \frac{\partial (\partial^{\mu} A^{\nu})}{\partial (\partial_{\lambda} A_{\beta})} \right] = 0  \nonumber 			   
+$$
+其中以第一项为例进行计算
+\begin{align}
+\frac{\partial (\partial_{\mu} A_{\nu})}{\partial(\partial_{\lambda} A_{\beta})} \partial^{\mu} A^{\nu} &=
+\frac{\partial (\frac{\partial}{\partial x^{\mu}} A_{\nu})}{\partial(\frac{\partial}{\partial x^{\lambda}} A_{\beta})} \partial^{\mu} A^{\nu} \nonumber \\
+	&= \delta_{\nu}^{\phantom{\nu} {\beta}} \delta^{\lambda}_{\phantom{\lambda} {\mu}} \partial^{\mu} A^{\nu}  \nonumber \\
+	&= \partial^{\lambda} A^{\beta} \nonumber
+\end{align}
+同理地，将其他三项进行同样的计算可得EOM为
+\begin{align}
+2\partial_{\lambda} \partial^{\lambda} A^{\beta} - 2\partial_{\lambda} \partial^{\beta} A^{\lambda} &=0 \nonumber \\
+2\partial_{\lambda} (\partial^{\lambda} A^{\beta} - \partial^{\beta} A^{\lambda} ) &=0 \nonumber \\
+2\partial_{\lambda} F^{\lambda \beta} &=0 \nonumber \\
+\partial_{\lambda} F^{\lambda \beta} &=0 \nonumber 
+\end{align}
+是Maxwell's equations的其中一个方程\\
+根据题意，$E^i = -F^{0i}$且$\epsilon^{ijk}B^{k} = -F^{ij}$得
+$$
+F^{\lambda \beta} = 
+\left[ 
+	\begin{matrix}
+	0 & -E^1 & -E^2 & -E^3 \\
+	E^1 & 0	& -B^3 & B^2 \\
+	E^2 & B^3 & 0 & -B^1 \\
+	E^3 & -B^2 & B^1 & 0 \\	
+	\end{matrix}
+\right]
+$$
+$$
+\partial_{\lambda} = \left[ \partial^{0}, -\partial^{1},-\partial^{2},-\partial^{3}\right]
+$$
+带入场方程的表达式中，可得
+\begin{align}
+&\partial_{\lambda} F^{\lambda \beta} \nonumber \\&= (-\partial^{1}E^{1}-\partial^{2}E^{2}-\partial^{3}E^{3},
+	-\partial^{0}E^{1}-\partial^{2}B^{3}+\partial^{3}B^{2},
+	-\partial^{0}E^{2}-\partial^{3}B^{1}+\partial^{1}B^{3},
+	-\partial^{0}E^{3}-\partial^{1}B^{2}+\partial^{2}B^{1}) \nonumber \\ &=
+	(0,0,0,0) \nonumber
+\end{align}
+可得：
+\begin{equation*}
+\left\{ \begin{aligned}
+\nabla \cdot \mathbf{E} =0,\\
+\nabla \times \mathbf{B} = \frac{\partial}{\partial t} \mathbf{E} 
+\end{aligned}
+\right.
+\end{equation*}
+
+又因为$F^{\mu \nu} = \partial^{\mu} A^{\nu} - \partial^{\nu} A^{\mu} $所以，自动满足一个轮换式：
+\begin{align}
+&\partial^{\lambda} F^{\mu \nu} + \partial^{\mu} F^{\nu \lambda} +\partial^{\nu} F^{\lambda \mu} \nonumber \\
+&= \partial^{\lambda}(\partial^{\mu} A^{\nu} - \partial^{\nu} A^{\mu}) + \partial^{\mu}  (\partial^{\nu} A^{\lambda} - \partial^{\lambda} A^{\nu}) +\partial^{\nu}  (\partial^{\lambda} A^{\mu} - \partial^{\mu} A^{\lambda}) \nonumber \\
+&=0 \nonumber 
+\end{align}
+通过构造一个新的张量：$\widetilde{F}^{\mu \nu} = \frac{1}{2} \epsilon^{\mu \nu \rho \sigma} F_{\rho \sigma} $\\
+将上面得轮换表达式可以变为$\partial_{\mu} \widetilde{F}^{\mu \nu} =0$
+且
+$$
+\widetilde{F}^{\mu \nu} = 
+\left[ 
+	\begin{matrix}
+	0 & -B^1 & -B^2 & -B^3 \\
+	B^1 & 0	& E^3 & -E^2 \\
+	B^2 & -E^3 & 0 & E^1 \\
+	B^3 & E^2 & -E^1 & 0 \\	
+	\end{matrix}
+\right]
+$$
+类似与上面一样的计算，可以得到：
+\begin{equation*}
+\left\{ \begin{aligned}
+\nabla \cdot \mathbf{B} =0,\\
+\nabla \times \mathbf{E} =- \frac{\partial}{\partial t} \mathbf{B} 
+\end{aligned}
+\right.
+\end{equation*}
+\bf{(b)}
+
+Nother定理在导出守恒流公式的时候，也定义能动张量有如下表达式
+$$
+T^{\mu}_{\phantom{\mu}\nu} = \frac{\partial \mathcal{L}}{\partial (\partial_{\mu}\phi)}  \partial_{\nu} \phi- \delta^{\mu}_{\phantom{\mu}\nu} \mathcal{L}
+$$
+将电磁场的情况进行带入，可以得到
+$$
+T^{\mu}_{\phantom{\mu}\nu} = \frac{\partial \mathcal{L}}{\partial (\partial_{\mu}A_{\beta})}  \partial_{\nu} A_{\beta}- \delta^{\mu}_{\phantom{\mu}\nu} \mathcal{L}
+$$
+进一步改写成
+$$
+T^{\mu \nu} = \frac{\partial \mathcal{L}}{\partial (\partial_{\mu}A_{\beta})}  \partial^{\nu} A_{\beta}- \delta^{\mu \nu} \mathcal{L}
+$$
+根据在(a)中的计算可得$\frac{\partial \mathcal{L}}{\partial (\partial_{\mu}A_{\beta})}  = F^{\beta \mu}$，所以$$T^{\mu \nu} = F^{\beta \mu} \partial^{\nu} A_{\beta}- \delta^{\mu \nu} \mathcal{L}$$
+是该电磁场理论下下的能动张量
+
+因为对于能动张量，必有如下关系成立$\partial_{\mu} T^{\mu \nu} =0 $，如果我们要去添加一项，使关系不变。\\
+使用关系式反对称关系$K^{\lambda \mu \nu} = - K^{\mu \lambda \nu}$ 可得：
+\begin{align}
+\partial_{\mu} \hat{T}^{\mu \nu} &=\partial_{\mu} (T^{\mu \nu} + \partial_{\lambda} K^{\lambda \mu \nu}) \nonumber \\
+				&=\partial_{\mu} T^{\mu \nu} + \partial_{\mu} \partial_{\lambda} K^{\lambda \mu \nu} \nonumber \\
+				&= 0 + \partial_{\mu} \partial_{\lambda} K^{\lambda \mu \nu} \nonumber \\
+				&= \frac{1}{2} (\partial_{\mu} \partial_{\lambda} K^{\lambda \mu \nu} + \partial_{\lambda} \partial_{\mu} K^{\mu \lambda \nu} ) \nonumber \\
+				&= \frac{1}{2} (\partial_{\mu} \partial_{\lambda} K^{\lambda \mu \nu} + \partial_{\mu} \partial_{\lambda} K^{\mu \lambda \nu} ) \nonumber \\
+				&=\frac{1}{2} \partial_{\mu} \partial_{\lambda} (K^{\lambda \mu \nu} + K^{\mu \lambda \nu}) \nonumber \\
+				&=0 \nonumber
+\end{align}
+如果我们构造$K^{\lambda \mu \nu} = F^{\mu \lambda} A^{\nu}$可以使能动张量变为对称张量，来满足题设条件。\\
+我们有：
+\begin{align}
+\hat{T}^{\mu \nu} &= T^{\mu \nu} + \partial_{\beta} K^{\beta \mu \nu} \nonumber \\
+				&= F^{\beta \mu} \partial^{\nu} A_{\beta}- \delta^{\mu \nu} \mathcal{L} + \partial_{\beta}( F^{\mu \beta} A^{\nu})\nonumber \\
+				&= F^{\beta \mu} \partial^{\nu} A_{\beta}- \delta^{\mu \nu} \mathcal{L} + \partial_{\beta} F^{\mu \beta} A^{\nu} + F^{\mu \beta} \partial_{\beta}A^{\nu} \nonumber 
+\end{align}
+其中 拉格朗日量项明显一定是对称的，后面$\partial_{\beta} F^{\mu \beta} A^{\nu} = - \partial_{\beta} F^{\beta \mu} A^{\nu} = 0$，所以，最后讨论的表达式为：
+$$
+F^{\beta \mu} \partial^{\nu} A_{\beta} + F^{\mu \beta} \partial_{\beta}A^{\nu} = F^{\beta \mu} \partial^{\nu} A_{\beta} - F^{\beta \mu} \partial_{\beta}A^{\nu} =  F^{\beta \mu}(\partial^{\nu} A_{\beta} -\partial_{\beta}A^{\nu} ) 
+= F^{\beta \mu} F^{\nu}_{\phantom{\nu} \beta}
+$$
+则若$F^{\beta \mu} F^{\nu}_{\phantom{\nu} \beta}$为对称的，即题设成立。
+在这种情况下$$T^{\mu \nu} = F^{\beta \mu} F^{\nu}_{\phantom{\nu} \beta} - \delta^{\mu \nu} \mathcal{L}$$
+写出$$
+F_{\lambda \beta} = 
+\left[ 
+	\begin{matrix}
+	0 & E^1 & E^2 & E^3 \\
+	-E^1 & 0	& -B^3 & B^2 \\
+	-E^2 & B^3 & 0 & -B^1 \\
+	-E^3 & -B^2 & B^1 & 0 \\	
+	\end{matrix}
+\right]
+\quad
+F^{\lambda}_{\phantom{\lambda} \beta} = 
+\left[ 
+	\begin{matrix}
+	0 & E^1 & E^2 & E^3 \\
+	E^1 & 0	& B^3 & -B^2 \\
+	E^2 & -B^3 & 0 & B^1 \\
+	E^3 & B^2 & -B^1 & 0 \\	
+	\end{matrix}
+\right]
+$$
+带入后可证明$F^{\beta \mu} F^{\nu}_{\phantom{\nu} \beta}$是对称的。\\
+且其00分量$$T^{00} =  F^{\beta 0} F^{0}_{\phantom{0} \beta} - \delta^{0 0} \mathcal{L}$$
+且
+\begin{align}
+\mathcal{L} &= - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} \nonumber \\
+			&= - \frac{1}{4} (F^{ 0 0} F_{0 0 } + F^{0 i} F_{0 i}+ F^{i 0} F_{i 0}+ F^{i j} F_{i j}) \nonumber \\
+			&= - \frac{1}{4} (0- 2\mathbf{E}^2 +(- \epsilon^{ijk} B^{k} )(- \epsilon_{ijm} B_{m})) \nonumber \\
+			&= - \frac{1}{4} (-2\mathbf{E}^2 + 2B^{k}B_{m} \delta^{k}_{m}) \nonumber \\
+			&=  \frac{1}{2} (\mathbf{E}^2 -\mathbf{B}^2) \nonumber
+\end{align}
+\begin{align}
+ F^{\beta 0} F^{0}_{\phantom{0} \beta}
+		&= F^{0 0} F^{0}_{\phantom{0} 0} +F^{i 0} F^{0}_{\phantom{0} i} \nonumber \\
+		&= \mathbf{E}^2 \nonumber
+\end{align}
+$$T^{00} =  F^{\beta 0} F^{0}_{\phantom{0} \beta} - \delta^{0 0} \mathcal{L}= \frac{1}{2} (\mathbf{E}^2 +\mathbf{B}^2)$$
+\begin{align}
+S^{k} = T^{0 k} &=  F^{\beta 0} F^{k}_{\phantom{k} \beta} \nonumber \\
+	&=  F^{0 0} F^{0}_{\phantom{0} 0} +  F^{j 0} F^{0}_{\phantom{0} j} + F^{0 0} F^{i}_{\phantom{i} 0} +  F^{j 0} F^{i}_{\phantom{i} j} \nonumber \\
+	&= E^{j} \epsilon_{ijk}B^{k} \nonumber \\
+\mathbf{S} &= \mathbf{E} \times \mathbf{B} \nonumber
+\end{align}
+\section{}
+\bf{(a)}
+$$S=\int d^4 x (\partial_{\mu} \phi^{*} \partial^{\mu} \phi - m^2 \phi^{*}\phi)$$
+其中，
+\begin{align}
+\mathcal{L} &= \partial_{\mu} \phi^{*} \partial^{\mu} \phi - m^2 \phi^{*}\phi \nonumber \\
+			&=\dot{\phi^{*}} \dot{\phi} - \nabla \phi^{*} \cdot \nabla \phi - m^2 \phi^{*}\phi \nonumber
+\end{align}
+与之对应的广义动量有
+$$
+\pi = \frac{\partial \mathcal{L}}{\partial \dot{\phi}} = \dot{\phi^{*}}
+\qquad 
+\pi^{*} = \frac{\partial \mathcal{L}}{\partial \dot{\phi^{*}}} = \dot{\phi}
+$$
+\begin{align}
+\mathcal{H} &= \pi \dot{\phi} + \pi^{*} \dot{\phi^{*}} - \mathcal{L} \nonumber \\
+			&= \dot{\phi^{*}} \dot{\phi} + \dot{\phi} \dot{\phi^{*}} - \mathcal{L} \nonumber \\
+			&= \dot{\phi^{*}} \dot{\phi} + \nabla \phi^{*} \cdot \nabla \phi + m^2 \phi^{*}\phi \nonumber \\
+		H   &= \int d^3 x \mathcal{H} \nonumber \\
+			&= \int d^3 x \left( \dot{\phi^{*}} \dot{\phi} + \nabla \phi^{*} \cdot \nabla \phi + m^2 \phi^{*}\phi \right) \nonumber \\
+			&= \int d^3 x \left( \pi^{*} \pi+ \nabla \phi^{*} \cdot \nabla \phi + m^2 \phi^{*}\phi \right) \nonumber 
+\end{align}
+通过将复标量场进行如下构造：
+$$\phi(x) = \frac{1}{\sqrt{2}} (\phi_1(x) + i \phi_2(x))$$
+$$\phi^{*}(x) = \frac{1}{\sqrt{2}} (\phi_1(x) - i \phi_2(x))$$
+我们对$\phi_1(x)$与$\phi_2(x)$已经有关于实标量场的对易关系，满足 \\
+$$
+[\phi_{1}(\mathbf{x},t), \phi_{1}(\mathbf{x^{\prime}},t)] = [\phi_{2}(\mathbf{x},t), \phi_{2}(\mathbf{x^{\prime}},t)]=0 
+$$
+$$
+[\phi_{1}(\mathbf{x},t), \pi_{1}(\mathbf{x^{\prime}},t)] = [\phi_{2}(\mathbf{x},t), \pi_{2}(\mathbf{x^{\prime}},t)] = i\delta(\mathbf{x} - \mathbf{x^{\prime}})
+$$
+带入可以得到复标量场的正则对易关系为：
+$$
+ [\phi(\mathbf{x},t), \phi(\mathbf{x^{\prime}},t)] = [\pi(\mathbf{x},t), \pi(\mathbf{x^{\prime}},t)] 
+=[\phi^{*}(\mathbf{x},t), \phi^{*}(\mathbf{x^{\prime}},t)] = [\pi^{*}(\mathbf{x},t), \pi^{*}(\mathbf{x^{\prime}},t)] =0 
+$$
+$$
+[\phi(\mathbf{x},t), \pi(\mathbf{x^{\prime}},t)] = [\phi^{*}(\mathbf{x},t), \pi^{*}(\mathbf{x^{\prime}},t)] = i\delta(\mathbf{x} - \mathbf{x^{\prime}})
+$$
+Heisenberg EOM : $$i \frac{\partial}{\partial t} \hat{\mathcal{O}}= \left[ \hat{\mathcal{O}},\hat{H} \right]$$
+
+\begin{align} \:
+i \frac{\partial}{\partial t} \hat{\pi}(\mathbf{x},t) 
+	&=\left[ \hat{\pi}(\mathbf{x},t),\hat{H} \right] \nonumber \\
+	&=\left[ \hat{\pi}(\mathbf{x},t),\int d^3 x^{\prime} \left(\hat{\pi}^{*}(\mathbf{x^{\prime}},t) \hat{\pi}(\mathbf{x^{\prime}},t)+ \nabla^{\prime} \hat{\phi}^{*}(\mathbf{x^{\prime}},t) \cdot \nabla^{\prime} \hat{\phi}(\mathbf{x^{\prime}},t) + m^2 \hat{\phi}^{*}(\mathbf{x^{\prime}},t)\hat{\phi}(\mathbf{x^{\prime}},t) \right) \right] \nonumber \\
+	&=\int d^3 x^{\prime} \left[ \hat{\pi}(\mathbf{x},t),\nabla^{\prime} \hat{\phi}^{*}(\mathbf{x^{\prime}},t) \cdot \nabla^{\prime} \hat{\phi}(\mathbf{x^{\prime}},t) + m^2 \hat{\phi}^{*}(\mathbf{x^{\prime}},t)\hat{\phi}(\mathbf{x^{\prime}},t) \right] \nonumber \\
+	&=\int d^3 x^{\prime} \: \nabla^{\prime} \hat{\phi}^{*}(\mathbf{x^{\prime}},t)  \left[ \hat{\pi}(\mathbf{x},t),\nabla^{\prime} \hat{\phi}(\mathbf{x^{\prime}},t) \right] \nonumber \\
+	&+ \int d^3 x^{\prime}  \: m^2 \hat{\phi}^{*}(\mathbf{x^{\prime}},t) \left[ \hat{\pi}(\mathbf{x},t), \hat{\phi}(\mathbf{x^{\prime}},t) \right] \nonumber \\
+	&= \int d^3 x^{\prime} \: \left(
+			-i \nabla^{\prime} \delta(\mathbf{x}-\mathbf{x}^{\prime})
+		\right)\nabla^{\prime} \hat{\phi}^{*}(\mathbf{x^{\prime}},t) \nonumber \\
+	&+ \int d^3 x^{\prime} \: m^2 \hat{\phi}^{*}(\mathbf{x^{\prime}},t) (-i \delta(\mathbf{x}-\mathbf{x}^{\prime})) \nonumber \\
+	&= -i\int d^3 x^{\prime} \: \left(
+			\nabla^{\prime}(\nabla^{\prime} \hat{\phi}^{*}(\mathbf{x^{\prime}},t) \delta(\mathbf{x}-\mathbf{x}^{\prime})) - \nabla^{\prime 2} \hat{\phi}^{*}(\mathbf{x^{\prime}},t) \delta(\mathbf{x}-\mathbf{x}^{\prime})
+	\right) \nonumber \\
+	&=\nabla^{\prime} \hat{\phi}^{*}(\mathbf{x^{\prime}},t) \delta(\mathbf{x}-\mathbf{x}^{\prime}) |^{+\infty}_{-\infty} +i\int d^3 x^{\prime} \: \nabla^{\prime 2} \hat{\phi}^{*}(\mathbf{x^{\prime}},t) \delta(\mathbf{x}-\mathbf{x}^{\prime}) \nonumber \\
+	&+ \int d^3 x^{\prime} \: m^2 \hat{\phi}^{*}(\mathbf{x^{\prime}},t) (-i \delta(\mathbf{x}-\mathbf{x}^{\prime})) \nonumber \\
+	&=i\int d^3 x^{\prime} \: \nabla^{\prime 2} \hat{\phi}^{*}(\mathbf{x^{\prime}},t) \delta(\mathbf{x}-\mathbf{x}^{\prime}) \nonumber +\int d^3 x^{\prime} \: m^2 \hat{\phi}^{*}(\mathbf{x^{\prime}},t) (-i \delta(\mathbf{x}-\mathbf{x}^{\prime})) \nonumber \\
+	&= i \left(
+		\nabla^2 - m^2
+	\right) \hat{\phi}^{*}(\mathbf{x},t) \nonumber \\
+	&=i \frac{\partial}{\partial t} \hat{\pi}(\mathbf{x},t)
+	= i \frac{\partial^2}{\partial t^2} \hat{\phi}^{*}(\mathbf{x},t) \nonumber 
+\end{align}
+可得K-G equation：
+\begin{align}
+(\frac{\partial^2}{\partial t^2} -\nabla^2 + m^2)\hat{\phi}^{*}(\mathbf{x},t) 	&=0 \nonumber \\
+(\partial^{\mu} \partial_{\mu} +m^2) \hat{\phi}^{*}(\mathbf{x},t) 				&=0 \nonumber \\
+(\partial^2 + m^2) \hat{\phi}^{*}(\mathbf{x},t) 								&=0 \nonumber
+\end{align}
+使用同样的方法计算
+$$
+i \frac{\partial}{\partial t} \hat{\pi}^{*}(\mathbf{x},t) = \left[ \hat{\pi}^{*}(\mathbf{x},t),\hat{H} \right] 
+$$
+也可得到$(\partial^2 + m^2) \hat{\phi}(\mathbf{x},t) =0$
+
+\bf{(b)}
+$$\phi(\mathbf{x},t) = \int \frac{d^3 p}{(2\pi)^3} \frac{1}{\sqrt{2E_\mathbf{p}}} \left(
+a_{\mathbf{p}} e^{-ipx} +  b^{\dagger}_\mathbf{p} e^{ipx} \right) 
+= \int d \widetilde{p}  \left(
+a_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} +  b^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} \right) 
+e^{i \mathbf{p} \mathbf{x}}$$
+$$\phi^{*}(\mathbf{x},t) = \int \frac{d^3 p}{(2\pi)^3}  \frac{1}{\sqrt{2E_\mathbf{p}}} \left(
+a^{\dagger}_{\mathbf{p}} e^{ipx} +  b_\mathbf{p} e^{-ipx} \right)
+=\int d \widetilde{p}  \left(
+a^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} +  b_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} \right) 
+e^{i \mathbf{p} \mathbf{x}}$$
+$$\pi^{*}(\mathbf{x},t)=\dot{\phi}(\mathbf{x},t) 
+=i\int \frac{d^3 p}{(2\pi)^3} \sqrt{\frac{E_\mathbf{p}}{2}}\left(
+- a_{\mathbf{p}} e^{-ipx} +  b^{\dagger}_\mathbf{p} e^{ipx} \right)
+=\int d \widetilde{p}  (i E_{\mathbf{p}})\left(
+- a_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} +  b^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} \right) 
+e^{i \mathbf{p} \mathbf{x}}$$
+$$\pi(\mathbf{x},t)=\dot{\phi^{*}}(\mathbf{x},t) 
+= i \int \frac{d^3 p}{(2\pi)^3}  \sqrt{\frac{E_\mathbf{p}}{2}} \left(
+a^{\dagger}_{\mathbf{p}} e^{ipx} -  b_\mathbf{p} e^{-ipx} \right)
+=\int d \widetilde{p} (i E_{\mathbf{p}}) \left(
+a^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} -  b_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} \right) 
+e^{i \mathbf{p} \mathbf{x}}$$
+带入表达式$H= \int d^3 x \left( \pi^{*} \pi+ \nabla \phi^{*} \cdot \nabla \phi + m^2 \phi^{*}\phi \right)$之中
+得,且有表达式$\int d^3 x \: e^{i \mathbf{k} \mathbf{x}} = (2 \pi)^3 \delta(\mathbf{k})$和表达式$E_{\mathbf{p}}=E_{-\mathbf{p}}$得：
+\begin{align}
+H 	&= \int d^3 x \: d \widetilde{p} \: d \widetilde{k} \: e^{i(\mathbf{p} +  \mathbf{k}) \mathbf{x}} 		\left[ 	(i E_{\mathbf{p}})\left( 
+		- a_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} +  b^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} \right)
+			(i E_{\mathbf{k}}) \left( 
+a^{\dagger}_{-\mathbf{k}} e^{i E_{\mathbf{k}}t} -  b_{\mathbf{k}} e^{-i E_{\mathbf{k}}t} \right) \right] \nonumber \\
+	&+\int d^3 x \: d \widetilde{p} \: d \widetilde{k} \: e^{i(\mathbf{p} +  \mathbf{k}) \mathbf{x}} \left[ 
+	 ((i  \mathbf{p})(i  \mathbf{k}) +m^2 )\left(
+		a_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} +  b^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} \right) 
+		\left(
+		a^{\dagger}_{-\mathbf{k}} e^{i E_{\mathbf{k}}t} +  b_{\mathbf{k}} e^{-i E_{\mathbf{k}}t} \right) 
+	\right] \nonumber \\
+	&= \int d \widetilde{p} \: d \widetilde{k} \: (2 \pi)^3 \delta(\mathbf{k} + \mathbf{p})\left[ 
+	 (E_{\mathbf{p}} E_{\mathbf{k}} -\mathbf{p} \mathbf{k} + m^2)
+	 (a_{\mathbf{p}} a^{\dagger}_{-\mathbf{k}} e^{i(E_{\mathbf{k}}-E_{\mathbf{p}})t}+ b^{\dagger}_{-\mathbf{p}} b_{\mathbf{k}}e^{-i(E_{\mathbf{k}}-E_{\mathbf{p}})t}) \right]\nonumber \\
+	 & + \int d \widetilde{p} \: d \widetilde{k} \: (2 \pi)^3 \delta(\mathbf{k} + \mathbf{p})\left[ 
+	 (-E_{\mathbf{p}} E_{\mathbf{k}} -\mathbf{p} \mathbf{k} + m^2)
+	  ( b^{\dagger}_{-\mathbf{p}} a^{\dagger}_{-\mathbf{k}} e^{i (E_{\mathbf{p}}+E_{\mathbf{k}})t} +a_{\mathbf{p}}b_{\mathbf{k}} e^{-i (E_{\mathbf{p}}+E_{\mathbf{k}})t})
+	\right] \nonumber \\
+	&= \int \: \frac{d^3 k }{(2 \pi)^3 \: 2 E_{\mathbf{k}}} \:\left[ 
+	 (E_{\mathbf{k}} E_{\mathbf{k}} +\mathbf{k} \mathbf{k} + m^2)
+	 (a_{-\mathbf{k}} a^{\dagger}_{-\mathbf{k}} + b^{\dagger}_{\mathbf{k}} b_{\mathbf{k}}) \right] \nonumber \\
+	&=\int \: \frac{d^3 k }{(2 \pi)^3 \: 2 E_{\mathbf{k}}} \:\left[ 
+	 (2E_{\mathbf{k}}^2)
+	 (a_{-\mathbf{k}} a^{\dagger}_{-\mathbf{k}} + b^{\dagger}_{\mathbf{k}} b_{\mathbf{k}}) \right] \nonumber \\
+	&=\int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 E_{\mathbf{k}}
+	 (a_{-\mathbf{k}} a^{\dagger}_{-\mathbf{k}} + b^{\dagger}_{\mathbf{k}} b_{\mathbf{k}})  \nonumber \\
+	&=\int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 E_{\mathbf{k}}
+	 ( a^{\dagger}_{-\mathbf{k}} a_{-\mathbf{k}}+ b^{\dagger}_{\mathbf{k}} b_{\mathbf{k}} +1)  \nonumber
+\end{align}
+且易证明$\int \frac{d^3 k }{(2 \pi)^3 } E_{\mathbf{k}}\:a^{\dagger}_{-\mathbf{k}} a_{-\mathbf{k}} = \int \frac{d^3 k }{(2 \pi)^3 } E_{\mathbf{k}}\:a^{\dagger}_{\mathbf{k}} a_{\mathbf{k}}$ 且 将上式写成正规乘积得形式，将发散的常数项去掉，最终有
+$$H = \int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 E_{\mathbf{k}}
+	 ( a^{\dagger}_{\mathbf{k}} a_{\mathbf{k}}+ b^{\dagger}_{\mathbf{k}} b_{\mathbf{k}}) $$
+
+\bf{(c)}
+$$
+Q=\int d^3 x  \frac{i}{2} \left( \phi^{*} \pi^{*} - \pi \phi \right)
+$$
+带入上述表达式，有如下表示
+\begin{align}
+Q &= \frac{i}{2} \int d^3 x \: 
+	d \widetilde{p} \: d \widetilde{k} \: e^{i (\mathbf{p}+\mathbf{k}) \mathbf{x}}
+	\left(
+	a^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} +  b_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} 
+	\right) 
+	i E_{\mathbf{k}}
+	\left(
+	- a_{\mathbf{k}} e^{-i E_{\mathbf{k}}t} +  b^{\dagger}_{-\mathbf{k}} e^{i E_{\mathbf{k}}t} 
+	\right) \nonumber \\
+ & -\frac{i}{2} \int d^3 x \: 
+	d \widetilde{p} \: d \widetilde{k} \: e^{i (\mathbf{p}+\mathbf{k}) \mathbf{x}}
+	(i E_{\mathbf{p}}) 
+	\left(
+	a^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} -  b_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} 
+	\right) 
+	\left(
+	a_{\mathbf{k}} e^{-i E_{\mathbf{k}}t} +  b^{\dagger}_{-\mathbf{k}} e^{i E_{\mathbf{k}}t} 
+	\right)   \nonumber \\
+ &=-\frac{1}{2}  \: \int
+	d \widetilde{p} \: d \widetilde{k} \: (2 \pi)^3 \delta(\mathbf{p}+\mathbf{k}) E_{\mathbf{k}}
+	\left(
+	a^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} +  b_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} 
+	\right) 
+	\left(
+	- a_{\mathbf{k}} e^{-i E_{\mathbf{k}}t} +  b^{\dagger}_{-\mathbf{k}} e^{i E_{\mathbf{k}}t} 
+	\right) \nonumber \\
+ & + \frac{1}{2} \:
+ 	d \widetilde{p} \: d \widetilde{k} \: (2 \pi)^3 \delta(\mathbf{p}+\mathbf{k}) E_{\mathbf{p}}
+	\left(
+	a^{\dagger}_{-\mathbf{p}} e^{i E_{\mathbf{p}}t} -  b_{\mathbf{p}} e^{-i E_{\mathbf{p}}t} 
+	\right) 
+	\left(
+	a_{\mathbf{k}} e^{-i E_{\mathbf{k}}t} +  b^{\dagger}_{-\mathbf{k}} e^{i E_{\mathbf{k}}t} 
+	\right)   \nonumber \\
+ &= \frac{1}{2}  \: \int
+	d \widetilde{p} \: d \widetilde{k} \: (2 \pi)^3 \delta(\mathbf{p}+\mathbf{k}) 
+	\left(
+	(E_{\mathbf{k}}+E_{\mathbf{p}})a^{\dagger}_{-\mathbf{p}} a_{\mathbf{k}} e^{i (E_{\mathbf{p}}-E_{\mathbf{k}})t} 
++	(E_{\mathbf{k}}-E_{\mathbf{p}})b_{\mathbf{p}} a_{\mathbf{k}} e^{-i(E_{\mathbf{p}}+E_{\mathbf{k}})t}
+	\right) \nonumber \\
+&+ \frac{1}{2}  \: \int
+	d \widetilde{p} \: d \widetilde{k} \: (2 \pi)^3 \delta(\mathbf{p}+\mathbf{k}) 
+	\left(
+	(-E_{\mathbf{k}}+E_{\mathbf{p}})a^{\dagger}_{-\mathbf{p}}  b^{\dagger}_{-\mathbf{k}} e^{i (E_{\mathbf{p}}+E_{\mathbf{k}})t} 
+-(E_{\mathbf{k}}+E_{\mathbf{p}}) b_{\mathbf{p}}  b^{\dagger}_{-\mathbf{k}}e^{-i (E_{\mathbf{p}}-E_{\mathbf{k}})t} 
+	\right) \nonumber \\
+&= \frac{1}{2} \int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 (a^{\dagger}_{\mathbf{k}} a_{\mathbf{k}} - b_{\mathbf{-k}} b^{\dagger}_{\mathbf{-k}} )  \nonumber \\
+&=\frac{1}{2} \int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	  \: N(a^{\dagger}_{\mathbf{k}} a_{\mathbf{k}} - b_{\mathbf{-k}} b^{\dagger}_{\mathbf{-k}})  \nonumber \\
+&=\frac{1}{2} \int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 (a^{\dagger}_{\mathbf{k}} a_{\mathbf{k}} - b^{\dagger}_{\mathbf{k}} b_{\mathbf{k}}  )  \nonumber 
+\end{align}
+且易得$[Q,H]=0$
+\begin{align}
+Q a^{\dagger}_{\mathbf{p}} \left | 0 \right \rangle &=\frac{1}{2} \int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 (a^{\dagger}_{\mathbf{k}} a_{\mathbf{k}} - b^{\dagger}_{\mathbf{k}} b_{\mathbf{k}}  ) a^{\dagger}_{\mathbf{p}}
+	 \left | 0 \right \rangle \nonumber \\
+	 &=\frac{1}{2} \int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 a^{\dagger}_{\mathbf{k}} a_{\mathbf{k}} a^{\dagger}_{\mathbf{p}}
+	 \left | 0 \right \rangle \nonumber \\
+	  &=\frac{1}{2} \int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 a^{\dagger}_{\mathbf{k}}  (a^{\dagger}_{\mathbf{p}} a_{\mathbf{k}} +(2 \pi)^3 \delta(\mathbf{p}-\mathbf{k}))
+	 \left | 0 \right \rangle \nonumber \\
+ & =\frac{1}{2} a^{\dagger}_{\mathbf{p}} \left | 0 \right \rangle \nonumber 
+\end{align}
+同理可证明
+$$Q b^{\dagger}_{\mathbf{p}} \left | 0 \right \rangle = -\frac{1}{2} b^{\dagger}_{\mathbf{p}} \left | 0 \right \rangle $$
+由此，我们可以说明，$Q$为荷算符，生成一个正粒子，其带着有$\frac{1}{2}$的荷。生成一个反粒子，其带着有$-\frac{1}{2}$的荷。
+
+\bf{(d)}
+因为两粒子为全同粒子，则可以将产生湮灭算符的对易关系改写为
+$[a_{\mathbf{p}\:a},a^{\dagger}_{\mathbf{k}\:b}] = (2 \pi)^3 \delta(\mathbf{p}-\mathbf{k}) \delta_{ab}$
+首先考虑(c)情况，将两个粒子的情况带入得：
+$$
+Q=\frac{1}{2} \int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 (a^{\dagger}_{\mathbf{k} \: a} a_{\mathbf{k} \: a} - b^{\dagger}_{\mathbf{k} \: a} b_{\mathbf{k} \: a}  )
+$$
+\begin{align}
+Q^{i}&=\int d^3 x  \frac{i}{2} \left( 
+		\phi^{*}_{a} (\sigma^{i})_{ab} \pi^{*}_{b} - \pi_{a} (\sigma^{i})_{ab} \phi_{b} 								\right) \nonumber \\
+	&=\frac{i}{2} \int d^3 x \: 
+	d \widetilde{p} \: d \widetilde{k} \: e^{i (\mathbf{p}+\mathbf{k}) \mathbf{x}}(i E_{\mathbf{k}})
+	\left(
+	a^{\dagger}_{-\mathbf{p}\:a} e^{i E_{\mathbf{p}}t} +  b_{\mathbf{p}\:a} e^{-i E_{\mathbf{p}}t} 
+	\right) 
+		(\sigma^{i})_{ab}
+	\left(
+	- a_{\mathbf{k} \:b} e^{-i E_{\mathbf{k}}t} +  b^{\dagger}_{-\mathbf{k} \:b} e^{i E_{\mathbf{k}}t} 
+	\right) \nonumber \\
+	 & -\frac{i}{2} \int d^3 x \: 
+	d \widetilde{p} \: d \widetilde{k} \: e^{i (\mathbf{p}+\mathbf{k}) \mathbf{x}}(i E_{\mathbf{p}}) 
+	\left(
+	a^{\dagger}_{-\mathbf{p} \:a} e^{i E_{\mathbf{p}}t} -  b_{\mathbf{p} \:a} e^{-i E_{\mathbf{p}}t} 
+	\right) 
+	(\sigma^{i})_{ab}
+	\left(
+	a_{\mathbf{k} \:b} e^{-i E_{\mathbf{k}}t} +  b^{\dagger}_{-\mathbf{k} \:b} e^{i E_{\mathbf{k}}t} 
+	\right)   \nonumber  \\
+	&= \frac{1}{2} \int \: \frac{d^3 k }{(2 \pi)^3 } \:
+	 (a^{\dagger}_{\mathbf{k} \: a} (\sigma^{i})_{ab} a_{\mathbf{k} \: b } - b_{\mathbf{k} \: a} (\sigma^{i})_{ab} b^{\dagger}_{\mathbf{k} \: b } )  \nonumber 
+\end{align}
+若要验证$Q^{i}$的性质与$SU(2)$相近，则，我们可以验证$[Q^{i},Q^{j}] = i \epsilon ^{ijk} Q^{k}$
+%\begin{align}
+%[Q^{i},Q^{j}] &= \frac{1}{4} \int \: \frac{d^3 k }{(2 \pi)^3 } \:\frac{d^3 p }{(2 \pi)^3 } \:
+%	 [a^{\dagger}_{\mathbf{k} \: a} (\sigma^{i})_{ab} a_{\mathbf{k} \: b } - b_{\mathbf{k} \: a} (\sigma^{i})_{ab} b^%{\dagger}_{\mathbf{k} \: b },  
+%	 a^{\dagger}_{\mathbf{p} \: c} (\sigma^{j})_{cd} a_{\mathbf{p} \: d } - b_{\mathbf{p} \: c} (\sigma^{j})_{cd} b^{%\dagger}_{\mathbf{p} \: d }] \nonumber \\
+%%	 &=\frac{1}{4} \int \: \frac{d^3 k }{(2 \pi)^3 } \:\frac{d^3 p }{(2 \pi)^3 } \:
+%%	 [a^{\dagger}_{\mathbf{k} \: a} (\sigma^{i})_{ab} a_{\mathbf{k} \: b } ,  
+%%	 a^{\dagger}_{\mathbf{p} \: c} (\sigma^{j})_{cd} a_{\mathbf{p} \: d } ] \nonumber \\
+%%	 &+\frac{1}{4} \int \: \frac{d^3 k }{(2 \pi)^3 } \:\frac{d^3 p }{(2 \pi)^3 } \:
+%%	 [ b_{\mathbf{k} \: a} (\sigma^{i})_{ab} b^{\dagger}_{\mathbf{k} \: b },  
+%%	  b_{\mathbf{p} \: c} (\sigma^{j})_{cd} b^{\dagger}_{\mathbf{p} \: d }] \nonumber \\
+%%	 &=\frac{1}{4} \int \: \frac{d^3 k }{(2 \pi)^3 } \:d^3 p   \:
+%%	 [a^{\dagger}_{\mathbf{k} \: a} (\sigma^{i})_{ab}\delta(\mathbf{k} -\mathbf{p}) \delta_{bc}(\sigma^{j})_{cd} a_{\mathbf{p} \: d }  
+%%	 -a^{\dagger}_{\mathbf{p} \: c} (\sigma^{j})_{cd}\delta(\mathbf{k} -\mathbf{p}) \delta_{ad}(\sigma^{i})_{ab} a_{\mathbf{k} \: b }] \nonumber \\
+%	 &-\frac{1}{4} \int \: \frac{d^3 k }{(2 \pi)^3 } \:d^3 p   \:
+%	 [ b_{\mathbf{k} \: a} (\sigma^{i})_{ab} \delta(\mathbf{k} -\mathbf{p}) \delta_{bc} (\sigma^{j})_{cd} b^{\dagger}_{\mathbf{p} \: d }
+%	 - b_{\mathbf{p} \: c} (\sigma^{j})_{cd}\delta(\mathbf{k} -\mathbf{p}) \delta_{ad}(\sigma^{i})_{ab} b^{\dagger}_{\mathbf{k} \: b }] \nonumber \\
+%	 &= \frac{1}{4} \int \: \frac{d^3 k }{(2 \pi)^3 } \:d^3 p   \:
+%	 [a^{\dagger}_{\mathbf{k} \: a} (\sigma^{i})_{ab} (\sigma^{j})_{bd} a_{\mathbf{k} \: d }  
+%	 -a^{\dagger}_{\mathbf{k} \: c} (\sigma^{j})_{ca} (\sigma^{i})_{ab} a_{\mathbf{k} \: b }] \nonumber \\
+%	 &-\frac{1}{4} \int \: \frac{d^3 k }{(2 \pi)^3 } \:d^3 p   \:
+%	 [ b_{\mathbf{k} \: a} (\sigma^{i})_{ab} (\sigma^{j})_{bd} b^{\dagger}_{\mathbf{k} \: d }
+%	 - b_{\mathbf{k} \: c} (\sigma^{j})_{ba} (\sigma^{i})_{ab} b^{\dagger}_{\mathbf{k} \: b }] \nonumber \\
+%	 &=
+%\end{align}
+\begin{align}
+[Q^{i},Q^{j}] &= -\frac{1}{4}\int \: d^3 x \: d^3 x^{\prime}[\phi^{*}_{a} (\sigma^{i})_{ab} \pi^{*}_{b} - \pi_{a} 
+				(\sigma^{i})_{ab} \phi_{b}, \phi^{*}_{c} (\sigma^{j})_{cd} \pi^{*}_{d} - \pi_{c} (\sigma^{j})_{cd} \phi_{d} ] \nonumber \\
+			  &=-\frac{1}{4}\int \: d^3 x \: d^3 x^{\prime} \:
+			   (\sigma^{i})_{ab} (\sigma^{j})_{cd}
+			   [\phi^{*}_{a}(x)\pi^{*}_{b}(x),\phi^{*}_{c}(x^{\prime})  \pi^{*}_{d}(x^{\prime})] \nonumber \\
+			  &+\frac{1}{4}\int \: d^3 x \: d^3 x^{\prime} \:
+			  (\sigma^{i})_{ab} (\sigma^{j})_{cd}
+			  [\pi_{a}(x)  \phi_{b}(x),\phi^{*}_{c}(x^{\prime})  \pi^{*}_{d}(x^{\prime})] \nonumber \\
+			  &+\frac{1}{4}\int \: d^3 x \: d^3 x^{\prime} \:
+			  (\sigma^{i})_{ab} (\sigma^{j})_{cd} 
+			  [\phi^{*}_{a}(x)  \pi^{*}_{b}(x), \pi_{c}(x^{\prime})  \phi_{d}(x^{\prime}) ] \nonumber \\
+			  &-\frac{1}{4}\int \: d^3 x \: d^3 x^{\prime} \:
+			  (\sigma^{i})_{ab} (\sigma^{j})_{cd}
+			  [\pi_{a}(x)  \phi_{b}(x), \pi_{c}(x^{\prime})  \phi_{d}(x^{\prime})] \nonumber
+\end{align}
+
+拿其中一项为例：
+\begin{align}
+[\phi^{*}_{a}(x)\pi^{*}_{b}(x),\phi^{*}_{c}(x^{\prime})  \pi^{*}_{d}(x^{\prime})] 
+	&= \phi^{*}_{c}(x^{\prime}) [\phi^{*}_{a}(x), \pi^{*}_{d}(x^{\prime})]\pi^{*}_{b}(x) \nonumber \\
+	&+\phi^{*}_{a}(x)[\pi^{*}_{b}(x), \phi^{*}_{c}(x^{\prime})]\pi^{*}_{d}(x^{\prime}) \nonumber \\
+	&= \phi^{*}_{c}(x^{\prime}) \delta(\mathbf{x} - \mathbf{x}^{\prime}) \delta_{ad} \pi^{*}_{b}(x) \nonumber \\
+	&-\phi^{*}_{a}(x)\delta(\mathbf{x} - \mathbf{x}^{\prime}) \delta_{bc}\pi^{*}_{d}(x^{\prime}) \nonumber 
+\end{align}
+
+则原表达式且利用
+$$\sigma^{i} \sigma^{j}=\frac{1}{2} ( \{ \sigma^{i},\sigma^{j} \} +[\sigma^{i},\sigma^{j}] ) = \delta^{ij} 
++ i \epsilon^{ij}_{\phantom{ij} k} \sigma^{k}$$
+\begin{align}
+[Q^{i},Q^{j}] 
+&= \frac{1}{4} \int d^3 x \:
+(\sigma^{j})_{ca} (\sigma^{i})_{ab} [\phi_{b} \pi_{c} - \pi^{*}_{b}\pi^{*}_{c}]
++  (\sigma^{i})_{ab} (\sigma^{j})_{bd}[ \phi^{*}_{a}\pi^{*}_{d}- \phi_{a} \pi_{d}]
+\nonumber \\
+&=\frac{1}{4} \int d^3 x \:
+(\delta^{ij}-i \epsilon^{ij}_{\phantom{ij} k} \sigma^{k})_{cb} [\phi_{b} \pi_{c} - \pi^{*}_{b}\pi^{*}_{c}] \nonumber \\
+&+\frac{1}{4} \int d^3 x \:
+(\delta^{ij}+i \epsilon^{ij}_{\phantom{ij} k} \sigma^{k})_{ad} [\phi^{*}_{a}\pi^{*}_{d}- \phi_{a} \pi_{d}] \nonumber \\
+&=i \epsilon^{ij}_{\phantom{ij} k} \int d^3 x  \frac{i}{2} \left( 
+		\phi^{*}_{a} (\sigma^{k})_{ab} \pi^{*}_{b} - \pi_{a} (\sigma^{k})_{ab} \phi_{b} 								\right) \nonumber \\
+&=i \epsilon^{ij}_{\phantom{ij} k} Q^{k} \nonumber \\
+\end{align}
+考虑两个复标量场
+\begin{align}
+\mathcal{L} &= \frac{1}{2} \partial_{\mu}(Re \phi_1) \partial^{\mu}(Re \phi_1) - \frac{1}{2} m^2 (Re \phi_1)^2 + (Re \rightarrow Im, 1 \rightarrow 2 ) \nonumber \\
+&= \left(
+	\begin{matrix}
+		\phi_1^{*} & \phi_2^{*} \\
+	\end{matrix} 
+\right)
+\left(
+	\begin{matrix}
+		-\partial^2 - m^2 & 0 \\
+		0 & -\partial^2 - m^2 \\
+	\end{matrix} 
+\right)
+\left(
+	\begin{matrix}
+		\phi_1 \\
+		\phi_2\\
+	\end{matrix} 
+\right)
+\end{align}
+且在$SU(2)$的表示空间下不变 \\
+经过推广，可以得到，在$U(n)$表示空间下，存在一个N维的场量
+单个复标量场满足$U(1)$对称性，我们可以假设N个全同粒子满足$U(N)$对称性。N个复标量场形成一个对称不变空间
+生成元有$N^2$个。带入二个粒子情况，在(d)中，我们可以知道有三个生成元存在，为SU(2)的生成元(共$N^2-1$)，再加上(c)问中的单位矩阵
+即构成了U(2)群中的四个生成元，并如下形式：
+$$Q^{\mu} =\int d^3 x  \frac{i}{2} \left( 
+		\phi^{*}_{a} (\sigma^{\mu})_{ab} \pi^{*}_{b} - \pi_{a} (\sigma^{\mu})_{ab} \phi_{b} 								\right)$$
+我们可以根据其为$U(n)$，做出推广
+设：
+$$
+\Phi = (\phi_1, \phi_2, \ldots ,\phi_n) \quad \Phi^{\prime} = e^{-i G r} \Phi
+$$
+\begin{align}
+Q^{ij} &= \int d^3 x \: (\frac{\partial \mathcal{L}}{\partial(\partial_{\mu} \Phi)} \delta \Phi +
+		\frac{\partial \mathcal{L}}{\partial(\partial_{\mu} \Phi^{\dagger})} \delta \Phi^{\dagger} )\nonumber \\
+		&=\int d^3 x \: (\frac{\partial \mathcal{L}}{\partial(\partial_{\mu} \Phi)} (e^{-i G r} - 1 )\Phi +
+		\frac{\partial \mathcal{L}}{\partial(\partial_{\mu} \Phi^{\dagger})} (e^{i G r} - 1 ) \Phi^{\dagger}) \nonumber \\
+       & = A \: i \int d^3 x \left( 
+		\phi^{*}_{a} (G^{ij})_{ab} \pi^{*}_{b} - \pi_{a} (G^{ij})_{ab} \phi_{b} \right) \nonumber 
+\end{align}
+A是某个与N有关的参数
+\section{}
+\bf{(a)}
+由
+$$
+\left[J^{\mu \nu}, J^{\rho \sigma} \right] = i(g^{\nu \rho} J^{\mu \sigma} - g^{\mu \rho} J^{\nu \sigma}-g^{\nu \sigma} J^{\mu \rho}+g^{\mu \sigma} J^{\nu \rho}) $$
+$$
+L^{i} = \frac{1}{2} \epsilon^{ijk} J^{jk},\quad K^{i}=J^{0i} $$
+$$
+J^{\mu \nu} = - J^{\nu \mu}$$
+得
+$$
+L^{1} = \frac{1}{2} (J^{23}-J^{32}) = J^{23}, \quad
+L^{2} = J^{31}, \quad
+L^{3} = J^{12} 
+$$
+\begin{align}
+\left[L^1, L^2 \right] 	&=\left[J^{2 3}, J^{3 1} \right] \nonumber \\
+						&=i(g^{3 3} J^{2 1} - g^{2 3} J^{3 1}-g^{3 1} J^{2 3}+g^{2 1} J^{3 3}) \nonumber \\
+						&=-iJ^{2 1} \nonumber \\
+						&= iJ^{12} = iL^3 \nonumber \\
+\left[L^2, L^3 \right] 	&=\left[J^{3 1}, J^{1 2}  \right] \nonumber \\
+						&= i(g^{1 1} J^{3 2} - g^{3 1} J^{1 2}-g^{1 2} J^{3 1}+g^{3 2} J^{1 1}) \nonumber \\
+						&=-iJ^{32} \nonumber \\
+						&= iJ^{23} = iL^1 \nonumber \\
+\left[L^3, L^1 \right] 	&=\left[J^{1 2}, J^{2 3} \right] \nonumber \\
+						&= i(g^{2 2} J^{1 3} - g^{1 2} J^{2 3}-g^{2 3} J^{1 2}+g^{1 3} J^{2 2}) \nonumber \\
+						&=-iJ^{13} \nonumber \\
+						&= iJ^{31} = iL^2 \nonumber 
+\end{align}
+\begin{align}
+\left[K^1, K^2 \right] 	&=\left[J^{0 1}, J^{0 2} \right] \nonumber \\
+						&= i(g^{1 0} J^{0 2} - g^{0 0} J^{1 2}-g^{1 2} J^{0 0}+g^{0 2} J^{1 0}) \nonumber \\
+						&=-iJ^{12} = -L^{3} \nonumber \\
+\left[K^2, K^3 \right] 	&=\left[J^{0 2}, J^{0 3} \right] \nonumber \\
+						&= i(g^{2 0} J^{0 3} - g^{0 0} J^{2 3}-g^{2 3} J^{0 0}+g^{0 3} J^{2 0})\nonumber \\
+						&=-iJ^{23} = -L^{1} \nonumber \\
+\left[K^3, K^1 \right] 	&=\left[J^{0 3}, J^{0 1} \right] \nonumber \\
+						&= i(g^{3 0} J^{0 1} - g^{0 0} J^{3 1}-g^{3 1} J^{0 0}+g^{0 1} J^{3 0}) \nonumber \\
+						&=-iJ^{31} = -L^{2} \nonumber 
+\end{align}
+\begin{align}
+\left[L^1, K^2 \right]	&=\left[J^{2 3}, J^{0 2} \right] \nonumber \\
+						&= i(g^{3 0} J^{2 2} - g^{2 0} J^{3 2}-g^{3 2} J^{2 0}+g^{2 2} J^{3 0})	\nonumber \\
+						&= - iJ^{30} = iK^{3} = \left[K^2, L^1 \right] \nonumber \\	
+\left[L^2, K^3 \right]	&=\left[J^{3 1}, J^{0 3} \right] \nonumber \\	
+						&= i(g^{1 0} J^{3 3} - g^{3 0} J^{1 3}-g^{1 3} J^{3 0}+g^{3 3} J^{1 0}) \nonumber \\
+						&= - iJ^{10} = iK^{1} = \left[K^3, L^2 \right] \nonumber \\		
+\left[L^3, K^1 \right]	&=\left[J^{1 2}, J^{0 1} \right] \nonumber \\	
+						&= i(g^{2 0} J^{1 1} - g^{1 0} J^{2 1}-g^{2 1} J^{1 0}+g^{1 1} J^{2 0})  \nonumber \\
+						&= - iJ^{20} = iK^{2} = \left[K^1, L^3 \right] \nonumber 	
+\end{align}
+由上式可以得出
+$$
+\left[ L^{i}, L^{j} \right] = i \epsilon^{ijk} L^{k} \quad \left[ K^{i}, K^{j} \right] = i \epsilon^{ijk} L^{k}
+\quad \left[ L^{i}, K^{j} \right]=\left[ K^{i},L^{j}  \right] = -i \epsilon^{ijk} K^{k}
+$$
+考虑构造$$
+\mathbf{J}_{+} = \frac{1}{2}(\mathbf{L} + i \mathbf{K}) \quad \mathbf{J}_{-} = \frac{1}{2}(\mathbf{L} - i \mathbf{K}) 
+$$
+\begin{align}
+\left[J_{+}^{i} ,J_{+}^{j} \right] 
+			&= \left[\frac{1}{2}(L^{i} + i K^{i}) ,\frac{1}{2}(L^{j} + i K^{j}) \right] \nonumber \\
+			&= \frac{1}{4} (\left[ L^{i},L^{j} \right] + i\left[ K^{i},L^{j} \right] 
+				+i\left[ L^{i},K^{j} \right] -\left[ K^{i},K^{j} \right]) \nonumber \\
+			&=i \epsilon^{ijk} \frac{1}{4}(L^{k} + 2i K^{k} - (- L^{k})) \nonumber \\
+			&=i  \epsilon^{ijk} \frac{1}{4}(2L^{k}+2iK^{k}) \nonumber \\
+			&=i \epsilon^{ijk} J_{+}^{k}  \\ \nonumber
+\left[J_{-}^{i} ,J_{-}^{j} \right] 
+			&= \left[\frac{1}{2}(L^{i} - i K^{i}) ,\frac{1}{2}(L^{j} - i K^{j}) \right] \nonumber \\
+			&= \frac{1}{4} (\left[ L^{i},L^{j} \right] - i\left[ K^{i},L^{j} \right] 
+				-i\left[ L^{i},K^{j} \right] -\left[ K^{i},K^{j} \right]) \nonumber \\
+			&=i \epsilon^{ijk} \frac{1}{4}(L^{k} - 2i K^{k}- (-L^{k})) \nonumber \\
+			&=i  \epsilon^{ijk} \frac{1}{4}(2L^{k}-2iK^{k}) \nonumber \\
+			&=i \epsilon^{ijk} J_{-}^{k} \\ \nonumber
+\left[J_{+}^{i} ,J_{-}^{j} \right] 
+			&= \left[\frac{1}{2}(L^{i} + i K^{i}) ,\frac{1}{2}(L^{j} - i K^{j}) \right] \nonumber \\
+			&= \frac{1}{4} (\left[ L^{i},L^{j} \right] + i\left[ K^{i},L^{j} \right] 
+				-i\left[ L^{i},K^{j} \right] +\left[ K^{i},K^{j} \right]) \nonumber \\
+			&=i \epsilon^{ijk} \frac{1}{4}(L^{k} + 0 + (-L^{k})) \nonumber \\
+			&=0\nonumber
+\end{align}
+
+\bf{(b)}
+
+1.在$(\frac{1}{2},0)$表示里面。$$J_{+}^{i}=\frac{\sigma^{i}}{2}, \quad J_{-}^{i} = 0 $$
+于是有
+\begin{align}
+ L^{i} &= J_{+}^{i} + J_{-}^{i} = \frac{\sigma^{i}}{2} \nonumber \\
+ K^{i} &= -i(J_{+}^{i} - J_{-}^{i}) = -i \frac{\sigma^{i}}{2} \nonumber 
+\end{align}
+由(a)中无穷小Lorentz变换可写为
+$$U = 1- i \boldsymbol{\theta} \cdot \mathbf{L} -i\boldsymbol{\beta} \cdot \mathbf{K}
+=1- i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} -\boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2}$$
+则$\psi_{L}$满足$\psi_{L} \rightarrow (1- i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} -\boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2})\psi_{L}$
+\\同样地在右手旋量空间有：\\
+2.在$(0,\frac{1}{2})$表示里面。$$J_{-}^{i}=\frac{\sigma^{i}}{2}, \quad J_{+}^{i} = 0 $$
+于是有
+\begin{align}
+ L^{i} &= J_{+}^{i} + J_{-}^{i} = \frac{\sigma^{i}}{2} \nonumber \\
+ K^{i} &= -i(J_{+}^{i} - J_{-}^{i}) = i \frac{\sigma^{i}}{2} \nonumber 
+\end{align}
+由(a)中无穷小Lorentz变换可写为
+$$U = 1- i \boldsymbol{\theta} \cdot \mathbf{L} - i\boldsymbol{\beta}  \cdot \mathbf{K}
+=1- i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} +\boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2}$$
+则$\psi_{R}$满足$\psi_{R} \rightarrow (1- i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} +\boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2})\psi_{R}$
+
+\bf(c)
+该题还可以通过 $SL(2,C)$群的一些性质很容易得到，如下的表达式\\
+在$(\frac{1}{2},\frac{1}{2})$表示之中，我们有二维的Lorentz变换，进行左右手旋量空间的转换。
+$$
+V = 
+\left(
+	\begin{matrix}
+		V^0 + V^3 & V^1 - iV^2 \\
+		V^1 + iV^2 & V^0 - V^3 \\
+	\end{matrix} 
+\right) = V^{0} + \mathbf{V} \cdot \boldsymbol{\sigma} = V^{\mu} \overline{\sigma}_{\mu}
+$$
+其中$V^{\mu} = (V^{0}, \mathbf{V}) \quad \overline{\sigma}_{\mu}=(1,\boldsymbol{\sigma})  $ \\
+并且运用在量子场论课堂上在证明Lorentz 矢量时，推导的公式：
+$$
+-\frac{1}{2}[\boldsymbol{\sigma},\overline{\sigma}_{\mu}] = (\mathbf{L})_{\mu}^{\phantom{\mu} \nu} \overline{\sigma}_{\nu}
+$$
+$$
+\frac{1}{2}\{\boldsymbol{\sigma},\overline{\sigma}_{\mu}\} = (i\mathbf{K})_{\mu}^{\phantom{\mu} \nu} \overline{\sigma}_{\nu}
+$$
+\begin{align}
+V^{\mu} \overline{\sigma}_{\mu}  \rightarrow &V^{\prime \mu} \overline{\sigma}_{\mu}  \nonumber \\
+  &=(1- i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} +\boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2}) V (1+ i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} +\boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2}) \nonumber \\
+  &= (1- i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} +\boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2}) V^{\mu} \overline{\sigma}_{\mu}(1+ i \boldsymbol{\theta} \cdot \frac{\boldsymbol{\sigma}}{2} +\boldsymbol{\beta} \cdot \frac{\boldsymbol{\sigma}}{2}) \nonumber \\
+  &= V^{\mu} \overline{\sigma}_{\mu} - i \frac{\theta}{2} V^{\mu} [\boldsymbol{\sigma},\overline{\sigma}_{\mu}] + \frac{\beta}{2} V^{\mu} \{\boldsymbol{\sigma},\overline{\sigma}_{\mu}\} + \mathcal{O}(2) \nonumber \\
+   &=V^{\mu} \overline{\sigma}_{\nu}[\delta_{\mu}^{\phantom{\mu} \nu}  + (i \boldsymbol{\theta} \cdot \mathbf{L}+i\boldsymbol{\beta} \cdot \mathbf{K})_{\mu}^{\phantom{\mu} \nu} ] \nonumber \\
+   &=(e^{i \boldsymbol{\theta} \cdot \mathbf{L}+i\boldsymbol{\beta} \cdot \mathbf{K}})_{\mu}^{\phantom{\mu} \nu}  V^{\mu} \overline{\sigma}_{\nu} \nonumber \\
+   &=\Lambda_{\mu}^{\phantom{\mu} \nu} V^{\mu} \overline{\sigma}_{\nu} \nonumber \\
+   &=\Lambda_{\nu}^{\phantom{\nu} \mu} V^{\nu} \overline{\sigma}_{\mu} \nonumber 
+\end{align}
+$$
+V^{\mu} \rightarrow V^{\prime \mu} =\Lambda_{\nu}^{\phantom{\nu} \mu} V^{\nu} = (\Lambda^{-1})^{\mu}_{\phantom{\mu} \nu} V^{\nu}
+$$
+与lorentz矢量所满足的变换吻合
+$$T^{\mu} \rightarrow T^{\prime \mu} = \Lambda^{\mu}_{\phantom{\mu}\nu} T^{\nu}$$
+
+\end{document}
