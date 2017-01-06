@@ -1,2 +1,2 @@
 # Quantum Field Theory
-a relaxing code about LaTeX
+a relaxing LaTeX code about QFT
